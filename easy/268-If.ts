@@ -1,0 +1,44 @@
+/*
+  268 - If
+  -------
+  by Pavel Glushkov (@pashutk) #easy #utils
+  
+  ### Question
+  
+  Implement a utils `If` which accepts condition `C`, a truthy return type `T`, and a falsy return type `F`. `C` is expected to be either `true` or `false` while `T` and `F` can be any type.
+
+  实现一个 utils `If` 它接受条件 `C`，一个真实的返回类型 `T` 和一个虚假的返回类型 `F` ,`C` 被期望为 true 或 false，而 `T` 和 `F` 可以是任何类型。
+
+  For example:
+  
+  ```ts
+  type A = If<true, 'a', 'b'>  // expected to be 'a'
+  type B = If<false, 'a', 'b'> // expected to be 'b'
+  ```
+  
+  > View on GitHub: https://tsch.js.org/268
+*/
+
+/* _____________ Your Code Here _____________ */
+//问题： 在ts中如何抛出错误
+//解：需要在入参定义时候就限制住，比如C extends true | false  这样传入null就会自动报错误
+
+type If<C extends true | false, T, F> = C extends true ? T : F;
+
+/* _____________ Test Cases _____________ */
+import { Equal, Expect } from '@type-challenges/utils';
+
+type cases = [
+  Expect<Equal<If<true, 'a', 'b'>, 'a'>>,
+  Expect<Equal<If<false, 'a', 2>, 2>>
+];
+
+// @ts-expect-error
+type error = If<null, 'a', 'b'>;
+
+/* _____________ Further Steps _____________ */
+/*
+  > Share your solutions: https://tsch.js.org/268/answer
+  > View solutions: https://tsch.js.org/268/solutions
+  > More Challenges: https://tsch.js.org
+*/
