@@ -4,7 +4,7 @@ ts-challenge
 
 # 挑战来源
 
-- https://github.com/type-challenges/type-challenges
+- https://github.com/type-challenges/type-challenges/blob/master/README.zh-CN.md
 
 # 参考解题方法
 
